@@ -1,6 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<style type="text/css">
+  .popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  /* The actual popup (appears on top) */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+  }
+
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+</style>
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -82,7 +136,7 @@
           <div class="col-lg-6 pt-4 pt-lg-0">
             <h3>Our "justice" system</h3>
             <p>
-              The current justice system the the furthest from the term "justice", the Federal charges and sentencing follow codes and rules that the Defense attorneys either know but don't tell the client... or that they simply don't know themselves because these days, most cases are handled like a "handshake deal" and the prosecutors and judges make money for locking people up. They are not motivated by the truth but by money. A good paralegal who has passion for justice will serve a convicted person better than most attorneys. Post-conviction relief is possible.
+The current justice system is the furthest from the term "justice". The Federal charges and sentencing follow codes and rules that many Defense attorneys either know but don't tell the client... or that they simply don't know themselves. These days, most cases are handled like a "handshake deal" and the prosecutors and judges make money for locking people up... they are not motivated by the truth but by money. A good paralegal who has passion for justice will often serve a convicted person better than most attorneys. Post-conviction relief is possible.
             </p>
             <!-- <div class="row">
               <div class="col-md-6">
@@ -110,7 +164,7 @@
           <div class="col-lg-6 pt-4 pt-lg-0">
             <h3>Over-sentencing</h3>
             <p>
-              Many people believe there is no hope if they actually committed the crime. That is not true because many people that should receive 12- 24 months are sentenced to 5-10 years. That is merely one example. Unless the case is reviewed by a professional who specializes in postconviction relief, they will not know if they have been over-sentenced. Over-sentencing is something which can be corrected with post conviction motions. There is something which you MUST have in order to be accepted by me as a client. you MUST have a copy of the PSR (pre-sentence report).
+Many people believe there is no hope if they actually committed the crime. That is not true because many people that should receive 12- 24 months are sentenced to 5-10 years. That is merely one example. Unless the case is reviewed by a professional who specializes in postconviction relief, they will not know if they have been over-sentenced. Over-sentencing is something which can be corrected with post conviction motions. There is something which you MUST have in order to be accepted by Real Solutions as a client. you MUST have a copy of the PSR (pre-sentence report).
             </p>
             <!-- <div class="row">
               <div class="col-md-6">
@@ -192,7 +246,7 @@
                 <i class="bx bx-file"></i>
               </div>
               <h4><a href="">Go over your case</a></h4>
-              <p>We will carefully go through your case and make sure to leave no stone unturned, and make sure you get the just sentence.</p>
+              <p>We will carefully go through your case and strive to leave no stone unturned. Our goal is for the innocent to be freed and the guilty to get the lowest sentence allowed by law. Simply, justice for all.</p>
             </div>
           </div>
 
@@ -451,12 +505,12 @@
           <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
             <div class="box">
               <h3>2255 motion preparation</h3>
-              <h4><sup>$</sup>900</h4>
+              <h4><sup>$</sup>1,500</h4>
               <ul>
                 <li>For ineffective assistance of counsel</li>
                 
-                <li>$900 if paid all at once <strong>OR</strong> </li>
-                <li>$125 per month for 10 months</li>
+                <li>additional $500 required if Real Solutions must engage in an extended response argument and filings after the initial motion is filed</li>
+                <li>Often, after a 2255 is won, the client will be given a free attorney and a "do-over".</li>
               </ul>
               <div class="btn-wrap">
                 <a href="#" class="btn-buy">Buy Now</a>
@@ -595,12 +649,14 @@
           <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/baker-free-onepage-bootstrap-theme/ -->
         </div>
       </div>
-      <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+
+      <div class="social-links text-center text-md-right pt-3 pt-md-0 popup" onclick="myFunction()">
+        <span class="popuptext" id="myPopup">Under Construction!</span>
+        <a class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a class="linkedin"><i class="bx bxl-linkedin"></i></a>
       </div>
     </div>
   </footer><!-- End Footer -->
@@ -620,7 +676,13 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
+<script>
+// When the user clicks on <div>, open the popup
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+</script>
 </body>
 
 </html>
